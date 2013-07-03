@@ -9,12 +9,14 @@ import pyNotificationCenter
 
 #https://api.skybiometry.com/fc/faces/recognize.json?api_key=33f9c5446fef45e6b16acc3ce7dab0d8&api_secret=6dd4226bbf4c4dd18dc3efda8cde8d41&urls=https://fbcdn-sphotos-b-a.akamaihd.net/hphotos-ak-ash4/p206x206/247653_10151605077307147_608037281_n.jpg&attributes=all
 
+
+max_recognize_attempts = 10
+pp = pprint.PrettyPrinter(indent=4)
+
 julie_id = "juls@ss.test"
 eric_id = "bigjumbo@ss.test"
 
-pp = pprint.PrettyPrinter(indent=4)
-
-photo = 'http://sandalsoft.com/snapshot.jpg'
+# photo = 'http://sandalsoft.com/snapshot.jpg'
 local_photo = '/Users/Eric/scripts/facedetect/snapshot.jpg'
 client = FaceClient('33f9c5446fef45e6b16acc3ce7dab0d8', '6dd4226bbf4c4dd18dc3efda8cde8d41')
 
@@ -68,7 +70,7 @@ def recognize_face():
 		else:
 			print "we are confident: " + str(highest_confidence_uid['confidence'])
 
-		print highest_confidence_uid['uid']
+		# print highest_confidence_uid['uid']
 		if highest_confidence_uid['uid'] == eric_id:
 			# print "hi is eric"
 			send_greeting("Eric", 501)
@@ -90,7 +92,6 @@ def send_greeting(name, uid):
 
 def switch_user(uid):
 	exec_cmd = "/System/Library/CoreServices/Menu Extras/User.menu/Contents/Resources/CGSession"
-	print exec_cmd
 	call([exec_cmd, "-switchToUserID", uid])
 
 
