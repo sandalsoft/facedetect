@@ -7,6 +7,11 @@ from face_client import FaceClient
 import pprint
 import pyNotificationCenter
 
+#https://api.skybiometry.com/fc/faces/recognize.json?api_key=33f9c5446fef45e6b16acc3ce7dab0d8&api_secret=6dd4226bbf4c4dd18dc3efda8cde8d41&urls=https://fbcdn-sphotos-b-a.akamaihd.net/hphotos-ak-ash4/p206x206/247653_10151605077307147_608037281_n.jpg&attributes=all
+
+julie_id = "juls@ss.test"
+eric_id = "bigjumbo@ss.test"
+
 pp = pprint.PrettyPrinter(indent=4)
 
 photo = 'http://sandalsoft.com/snapshot.jpg'
